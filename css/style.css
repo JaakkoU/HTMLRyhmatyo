@@ -79,5 +79,10 @@ h2{
 
 
     .info_content{
-        text-align: center;
+        float: right;
+        padding: 30px;
+    }
+
+    img[src*="images/luonto.jpg"] {
+        padding: 20px;
     }
