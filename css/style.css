@@ -77,3 +77,11 @@ h2{
     }
 }
 
+.osoite{
+    font-size: 2cm;
+    text-align: left;  
+    }
+    
+    .info_content{
+        text-align: center;
+    }
