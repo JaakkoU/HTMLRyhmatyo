@@ -77,12 +77,19 @@ h2{
     }
 }
 
+img[src*="images/luonto.jpg"] {
+padding: 20px;
+}
 
-    .info_content{
-        float: right;
-        padding: 30px;
-    }
+.py{
+font-size: 30px;
+}
 
-    img[src*="images/luonto.jpg"] {
-        padding: 20px;
-    }
+.maps{
+position: relative;
+border: none; padding-left: 32px;
+}
+
+.info_content{
+ padding-top: 20px;
+}
