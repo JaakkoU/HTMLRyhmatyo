@@ -17,16 +17,20 @@
             xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    if (this.responseText == "ok") {
-                        window.location.assign("/projekti/tervetuloa.php");
-                    } else {
+                    if (this.responseText == "adminok") {
+                        window.location.assign("./admin.php");
+                    }
+                    else if (this.responseText == "ok") {
+                        window.location.assign("./tervetuloa.php");
+                    }
+                    else {
                         document.getElementById("result").innerHTML = this.responseText;
                     }
+
                 }
             };
-            xmlhttp.open("POST", "/projekti/kirjaudu.php", true);
-            xmlhttp.setRequestHeader("Content-type",
-                "application/x-www-form-urlencoded");
+            xmlhttp.open("POST", "./kirjaudu.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xmlhttp.send("user=" + jsonUser);
         }
     </script>
@@ -37,8 +41,11 @@
         <input type='text' name='salasana' value='' placeholder='Salasana...'><br>
         <input type='button' name='ok' value='Lähetä' onclick='lahetaKayttaja(this.form);'><br>
     </form>
-    <p id='result'>Palaute tähän</p>
-
+    <p id='result'>
+        Palaute tähän
+    </p>
+    <p>Eiko sinulla ole tunnusta? <a href="./rekisteroidy.html">Rekisteröidy</a>
+    </p>
 </body>
 
 </html>

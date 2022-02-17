@@ -19,7 +19,6 @@ try {
     mysqli_stmt_bind_param($stmt, 'sssssss', $user->tunnus, $user->salasana, $user->enimi, $user->snimi, $user->sposti, $user->puh, $user->osoite);
     mysqli_stmt_execute($stmt);
     mysqli_close($yhteys);
-    print $json;
 } catch (Exception $e) {
     print "Tunnus jo olemassa tai muu virhe!";
 }
