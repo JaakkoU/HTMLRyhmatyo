@@ -1,10 +1,10 @@
 <?php
-/*
+
 session_start();
-if (!isset($_SESSION["isAdmin"])){
+if (!(isset($_SESSION["users"]) && $_SESSION["users"]=="admin")){
     header("Location:../html/kirjaudu.html");
     exit;
-}*/
+}
 ?>
 
 
