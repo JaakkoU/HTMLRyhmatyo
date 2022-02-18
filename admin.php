@@ -49,7 +49,7 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
                             <a class="nav-link active" aria-current="page" href="index.html">Etusivu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="info.html">Tietoa meistä</a>
+                            <a class="nav-link" href="info.html">Tietoa meistï¿½</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -67,7 +67,7 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
                     </ul>
                 </div>
                 <li class="nav-item">
-                    <a class="nav-link" href="kirjaudu.html">Kirjaudu sisään</a>
+                    <a class="nav-link" href="kirjaudu.html">Kirjaudu sisï¿½ï¿½n</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="kirjauduulos.html">Kirjaudu ulos</a>
@@ -90,7 +90,7 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
 
         <?php
         try {
-            $yhteys = mysqli_connect("db", "root", "password", "userdata");
+            $yhteys = mysqli_connect("db", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
         } catch (Exception $e) {
             print "eitoimi";
             exit;
@@ -100,7 +100,7 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
 
 
         //Kyselyn tekeminen
-        $tulos = mysqli_query($yhteys, "select * from users");
+        $tulos = mysqli_query($yhteys, "select * from TRTKP21A3_12_users");
 
 
         //Tulostietojen tulostus

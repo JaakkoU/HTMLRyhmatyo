@@ -10,7 +10,7 @@ mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 // mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 try {
-    $yhteys = mysqli_connect("db", "root", "password", "userdata");
+    $yhteys = mysqli_connect("db", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
 } catch (Exception $e) {
     print "Yhteysvirhe";
     exit;
@@ -18,7 +18,7 @@ try {
 
 //Tehdään sql-lause, jossa kysymysmerkeillä osoitetaan paikat
 //joihin laitetaan muuttujien arvoja
-$sql = "select * from users where tunnus=? and salasana=SHA2(?, 256)";
+$sql = "select * from TRTKP21A3_12_users where tunnus=? and salasana=SHA2(?, 256)";
 try {
     //Valmistellaan sql-lause
     $stmt = mysqli_prepare($yhteys, $sql);
@@ -30,7 +30,7 @@ try {
     //metodilla mysqli_stmt_get_result($stmt);
     $tulos = mysqli_stmt_get_result($stmt);
     if ($rivi = mysqli_fetch_object($tulos)) {
-        $_SESSION["users"] = "$rivi->tunnus";
+        $_SESSION["TRTKP21A3_12_users"] = "$rivi->tunnus";
         if ($user->tunnus == "admin") {
             print "adminok";
         } else {

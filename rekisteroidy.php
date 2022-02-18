@@ -7,13 +7,13 @@ if (!($user = tarkistaJson($json))) {
 }
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 try {
-    $yhteys = mysqli_connect("db", "root", "password", "userdata");
+    $yhteys = mysqli_connect("db", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
 } catch (Exception $e) {
     print "Yhteysvirhe";
     exit();
 }
 
-$sql = "insert into users (tunnus, salasana, etunimi, sukunimi, sposti, puhelinnumero, osoite) values(?, SHA2(?, 256), ?, ?, ?, ?, ?)";
+$sql = "insert into TRTKP21A3_12_users (tunnus, salasana, etunimi, sukunimi, sposti, puhelinnumero, osoite) values(?, SHA2(?, 256), ?, ?, ?, ?, ?)";
 try {
     $stmt = mysqli_prepare($yhteys, $sql);
     mysqli_stmt_bind_param($stmt, 'sssssss', $user->tunnus, $user->salasana, $user->enimi, $user->snimi, $user->sposti, $user->puh, $user->osoite);

@@ -6,12 +6,12 @@ if (empty($muokattava)) {
 	exit;
 }
 try {
-	$yhteys = mysqli_connect("db", "root", "password", "userdata");
+	$yhteys = mysqli_connect("db", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
 } catch (Exception $e) {
 	print "ei toimi";
 	exit;
 }
-$sql = "select * from users where tunnus=?";
+$sql = "select * from TRTKP21A3_12_users where tunnus=?";
 //valmistellaan sql-lause
 $stmt = mysqli_prepare($yhteys, $sql);
 //sijoitetaan muuttujat oikeisiin paikkoihin
