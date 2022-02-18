@@ -7,7 +7,7 @@ if (!($user = tarkistaJson($json))) {
 }
 mysqli_report(MYSQLI_REPORT_ALL ^ MYSQLI_REPORT_INDEX);
 try {
-    $yhteys = mysqli_connect("db", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
+    $yhteys = mysqli_connect("shell.hamk.fi", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
 } catch (Exception $e) {
     print "Yhteysvirhe";
     exit();

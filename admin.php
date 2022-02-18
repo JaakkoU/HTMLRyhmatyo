@@ -90,7 +90,7 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
 
         <?php
         try {
-            $yhteys = mysqli_connect("db", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
+            $yhteys = mysqli_connect("shell.hamk.fi", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
         } catch (Exception $e) {
             print "eitoimi";
             exit;

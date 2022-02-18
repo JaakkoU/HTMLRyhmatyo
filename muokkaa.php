@@ -6,7 +6,7 @@ if (empty($muokattava)) {
 	exit;
 }
 try {
-	$yhteys = mysqli_connect("db", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
+	$yhteys = mysqli_connect("shell.hamk.fi", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
 } catch (Exception $e) {
 	print "ei toimi";
 	exit;
