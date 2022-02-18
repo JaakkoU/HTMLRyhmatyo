@@ -45,7 +45,14 @@ function tarkistaJson($json)
         return false;
     }
     $user = json_decode($json, false);
-    if (empty($user->tunnus) || empty($user->salasana)) {
+    if (empty($user->tunnus) 
+     || empty($user->salasana) 
+     || empty($user->etunimi)
+     || empty($user->sukunimi)
+     || empty($user->sposti)
+     || empty($user->puhelinnumero)
+     || empty($user->osoite)
+     ) {
         return false;
     }
     return $user;
