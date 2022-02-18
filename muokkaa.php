@@ -15,7 +15,7 @@ $sql = "select * from users where tunnus=?";
 //valmistellaan sql-lause
 $stmt = mysqli_prepare($yhteys, $sql);
 //sijoitetaan muuttujat oikeisiin paikkoihin
-mysqli_stmt_bind_param($stmt, 'i', $muokattava);
+mysqli_stmt_bind_param($stmt, 's', $muokattava);
 //suoritetaan sql-lause
 mysqli_stmt_execute($stmt);
 $tulos = mysqli_stmt_get_result($stmt);

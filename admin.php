@@ -10,7 +10,9 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
 
 
 
-<!DOCTYPE html>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml" lang="fi" xml:lang="fi">
+ <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
 <html lang="fi">
 
 <head>
@@ -32,10 +34,12 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Sports<br>&nbsp;Shop</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -45,10 +49,11 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
                             <a class="nav-link active" aria-current="page" href="index.html">Etusivu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="info.html">Tietoa meistÃ¤</a>
+                            <a class="nav-link" href="info.html">Tietoa meistä</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Tuotteet
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -61,6 +66,12 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
                         </li>
                     </ul>
                 </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="kirjaudu.html">Kirjaudu sisään</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="kirjauduulos.html">Kirjaudu ulos</a>
+                </li>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Haku</button>
