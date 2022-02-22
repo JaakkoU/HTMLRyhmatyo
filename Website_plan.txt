@@ -1,8 +1,0 @@
-Sports store website.
-Including
-    - main page
-    - info about the company
-    - couple pages for products
-    - selection page if we have time
-
-    Pages include navbar and a footer with the stores contact information

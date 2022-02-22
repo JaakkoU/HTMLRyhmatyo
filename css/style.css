@@ -93,3 +93,9 @@ border: none; padding-left: 20px;
 .info_content{
  padding-top: 20px;
 }
+
+table, th, tr, td {
+            border: 1px solid black;
+            padding: 1px;
+            border-collapse: collapse;
+        }

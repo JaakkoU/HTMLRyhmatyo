@@ -9,7 +9,7 @@ if (empty($poistettava)) {
 }
 
 try {
-    $yhteys = mysqli_connect("shell.hamk.fi", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
+    $yhteys = mysqli_connect("localhost", "TRTKP21A3_12", "gPdxmaLj", "wp_TRTKP21A3_12");
 } catch (Exception $e) {
 
     exit;

@@ -6,7 +6,7 @@ if (empty($muokattava)) {
 	exit;
 }
 try {
-	$yhteys = mysqli_connect("shell.hamk.fi", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
+	$yhteys = mysqli_connect("localhost", "TRTKP21A3_12", "gPdxmaLj", "wp_TRTKP21A3_12");
 } catch (Exception $e) {
 	print "ei toimi";
 	exit;
@@ -32,7 +32,7 @@ if (!$rivi = mysqli_fetch_object($tulos)) {
 		user.tunnus = lomake.tunnus.value;
 		user.salasana = lomake.salasana.value;
 		user.etunimi = lomake.etunimi.value;
-		user.sukunimi = lomake.etunimi.value;
+		user.sukunimi = lomake.sukunimi.value;
 		user.sposti = lomake.sposti.value;
 		user.puhelinnumero = lomake.puhelinnumero.value;
 		user.osoite = lomake.osoite.value;

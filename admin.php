@@ -1,10 +1,11 @@
 <?php
 
 session_start();
-if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
+if (!(isset($_SESSION["TRTKP21A3_12_users"]) && $_SESSION["TRTKP21A3_12_users"] == "admin")) {
     header("Location:./kirjaudu.html");
     exit;
 }
+header('Content-Type: text/html; charset=iso-8859-1');
 ?>
 
 
@@ -14,19 +15,18 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
   <html xmlns="http://www.w3.org/1999/xhtml" lang="fi" xml:lang="fi">
  <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
 <html lang="fi">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
-    <meta name="author" content="Jesse Rajala">
-    <meta name="description" content="Store page for Peltonen skinpro 2.0 at SPORTS STORE">
+    <meta name="author" content="Jaakko Uusitalo">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
     <title>ADMIN</title>
     <style>
-        /*Suksi_sivu.html is made by Jesse Rajala, Product page layout as well*/
+        
     </style>
 </head>
 
@@ -34,7 +34,7 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
 
 
 
-       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Sports<br>&nbsp;Shop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -49,7 +49,7 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
                             <a class="nav-link active" aria-current="page" href="index.html">Etusivu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="info.html">Tietoa meistï¿½</a>
+                            <a class="nav-link" href="info.html">Tietoa meistä</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -66,12 +66,18 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
                         </li>
                     </ul>
                 </div>
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                 <li class="nav-item">
+                    <a class="nav-link" href="https://hameenamk-my.sharepoint.com/:w:/g/personal/jesse21007_student_hamk_fi/ES7mcLCTZj1LksRBTsr-qyoBZL5hXFqsXNwkOe0lg7LGpw?e=50kWkK">Dokumentonti</a>
+                </li>
+                
                 <li class="nav-item">
-                    <a class="nav-link" href="kirjaudu.html">Kirjaudu sisï¿½ï¿½n</a>
+                    <a class="nav-link" href="kirjaudu.html">Kirjaudu sisään</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="kirjauduulos.html">Kirjaudu ulos</a>
+                    <a class="nav-link" href="kirjauduulos.php">Kirjaudu ulos</a>
                 </li>
+                </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Haku</button>
@@ -84,13 +90,13 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
 
 
 
-
-    <section>
+    <section> 
+   	<div>
 
 
         <?php
         try {
-            $yhteys = mysqli_connect("shell.hamk.fi", "TRTKP21A3", "gPdxmaLj", "wp_TRTKP21A3_12");
+            $yhteys = mysqli_connect("localhost", "TRTKP21A3_12", "gPdxmaLj", "wp_TRTKP21A3_12");
         } catch (Exception $e) {
             print "eitoimi";
             exit;
@@ -104,61 +110,67 @@ if (!(isset($_SESSION["users"]) && $_SESSION["users"] == "admin")) {
 
 
         //Tulostietojen tulostus
-        print "<ol>";
+        print "<table border='1'>";
+        print "<tr><th> Tunnus </th>
+                   <th> Salasana </th>
+                   <th> Etunimi </th>
+                   <th> Sukunimi </th>
+                   <th> Sposti </th>
+                   <th> Puhelinnumero </th>
+                   <th> Osoite </th>
+                   <th>  </th>
+                   <th>  </th></tr>";
         while ($rivi = mysqli_fetch_object($tulos)) {
-            print "<li>$rivi->tunnus
-               $rivi->salasana 
-               $rivi->etunimi
-               $rivi->sukunimi 
-               $rivi->sposti 
-               $rivi->puhelinnumero 
-               $rivi->osoite
-               
-               
-               
-               " . "<a href='./poista.php?poistettava=$rivi->tunnus'> Poista</a>
-<a href='./muokkaa.php?muokattava=$rivi->tunnus'> Muokkaa</a>";
+            print "
+               <tr><td>$rivi->tunnus
+               <td>$rivi->salasana
+               <td>$rivi->etunimi
+               <td>$rivi->sukunimi
+               <td>$rivi->sposti
+               <td>$rivi->puhelinnumero
+               <td>$rivi->osoite
+               <td><a href='./poista.php?poistettava=$rivi->tunnus'> Poista</a>
+               <td><a href='./muokkaa.php?muokattava=$rivi->tunnus'> Muokkaa</a></tr>";
         }
-        print "</ol>";
-
-
-
+        
+        
+        print "</table>";
+      
         mysqli_close($yhteys);
         ?>
-
+	
+	</div>
     </section>
+    
+    
+   
 
-    <footer>
-        <div class="row">
-            <div class="column"></div>
-            <div class="column">
-                <h4> Ota yhteyttÃ¤: </h4>
-                <address>
-                    SPORTS SHOP <br>
-                    sportshop@email.com <br>
-                    044 1234 567 <br>
-                    NimetÃ¶ntie 1 <br>
-                    123456 Tampere
-                </address>
+     <footer>
+            <div class="row">
+                <div class="column"></div>
+                <div class="column">
+                    <h4> Ota yhteyttä: </h4>
+                    <address>
+                        SPORTS SHOP <br>
+                        sportshop@email.com <br>
+                        044 1234 567 <br>
+                        Nimetöntie 1 <br>
+                        123456 Tampere
+                    </address>
+                </div>
+                <div class="column">
+                    <h4>Avoinna:</h4>
+                    <p> <strong>Ma:</strong> 9-21<br>
+                        <strong>Ti:</strong> 9-21<br>
+                        <strong>Ke:</strong> 9-21<br>
+                        <strong>To:</strong> 9-21<br>
+                        <strong>Pe:</strong> 9-18<br>
+                        <strong>La:</strong> 12-18<br>
+                        <strong>Su:</strong> Suljettu
+                    </p>
+                </div>
+                <div class="column"></div>
             </div>
-            <div class="column">
-                <h4>Avoinna:</h4>
-                <p> <strong>Ma:</strong> 9-21<br>
-                    <strong>Ti:</strong> 9-21<br>
-                    <strong>Ke:</strong> 9-21<br>
-                    <strong>To:</strong> 9-21<br>
-                    <strong>Pe:</strong> 9-18<br>
-                    <strong>La:</strong> 12-18<br>
-                    <strong>Su:</strong> Suljettu
-                </p>
-            </div>
-            <div class="column"></div>
-        </div>
-    </footer>
-
-
+        </footer>
 </body>
-
-
-
 </html>
